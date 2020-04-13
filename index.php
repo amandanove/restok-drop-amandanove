@@ -1,9 +1,9 @@
-<?php
+<?php 
 
 include('koneksi.php');
 
-if(isset($_POST['sbumit'])){
-    if(isset($_POST['aksi']) && $_POST['aksi'] == 'hapus'){
+if(isset($_POST['submit'])){
+if(isset($_POST['aksi']) && $_POST['aksi'] == 'hapus'){
         $id = $_POST['id'];
         $sql = "DELETE FROM barang WHERE id=".$id;
         $db->query($sql);
@@ -18,28 +18,37 @@ if(!$result = $db->query('SELECT * FROM barang')){
 }
 $no = 1;
 
-?>
+ ?>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
+	<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <title>Hello, world!</title>
+	<title>Hello, world!</title>
 </head>
 <body>
-    
-    
-    <div class="container">
+	<div class="container">
         <h1>Daftar Barang</h1>
 
         <div class="row">
             <div class="col-sm">
-                <a href="tambah.php" class="btn btn-primary">Tambah Barang</a>
+         
             </div>
         </div>
         
+        <div class="row">
+            <div class="col-sm">
+               
+            </div>
+        </div>
+	<a href="tambah.php" class="btn btn-info btn-md">Tambah Barang</a>
+	<a href="restock.php" class="btn btn-info btn-md">Restock</a>
+	
+
+
         <div class="row py-2">
             <div class="col-sm">
                 
@@ -60,7 +69,7 @@ $no = 1;
                     </tr>
                 </thead>
                 <tbody>
-                    <?php while($row = $result->fetch_assoc()) { ?>
+                	<?php while($row = $result->fetch_assoc()) { ?>
                     <tr>
                         <th scope="row"><?php echo $no++ ?></th>
                         <td><?php echo $row['nama'] ?></td>
@@ -83,7 +92,5 @@ $no = 1;
             </div>
         </div>
     </div>
-    
-    
 </body>
 </html>
